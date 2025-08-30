@@ -1,0 +1,213 @@
+"""
+Comprehensive NSE Stock Lists
+Contains major NSE stocks organized by sectors and market cap
+"""
+
+# NIFTY 50 - Top 50 stocks by market cap
+NIFTY_50 = [
+    'RELIANCE.NS', 'TCS.NS', 'HDFCBANK.NS', 'INFY.NS', 'HINDUNILVR.NS',
+    'ICICIBANK.NS', 'KOTAKBANK.NS', 'BHARTIARTL.NS', 'ITC.NS', 'SBIN.NS',
+    'ASIANPAINT.NS', 'MARUTI.NS', 'TITAN.NS', 'NESTLEIND.NS', 'HCLTECH.NS',
+    'BAJFINANCE.NS', 'ULTRACEMCO.NS', 'POWERGRID.NS', 'NTPC.NS', 'LT.NS',
+    'AXISBANK.NS', 'TECHM.NS', 'SUNPHARMA.NS', 'ONGC.NS', 'COALINDIA.NS',
+    'WIPRO.NS', 'TATAMOTORS.NS', 'JSWSTEEL.NS', 'HINDALCO.NS', 'INDUSINDBK.NS',
+    'ADANIENT.NS', 'TATASTEEL.NS', 'BAJAJFINSV.NS', 'HEROMOTOCO.NS', 'CIPLA.NS',
+    'BRITANNIA.NS', 'DIVISLAB.NS', 'EICHERMOT.NS', 'DRREDDY.NS', 'APOLLOHOSP.NS',
+    'BPCL.NS', 'GRASIM.NS', 'SHRIRAMFIN.NS', 'TRENT.NS', 'ADANIPORTS.NS',
+    'BAJAJ-AUTO.NS', 'LTIM.NS', 'SBILIFE.NS', 'HDFCLIFE.NS', 'M&M.NS'
+]
+
+# NIFTY NEXT 50 - Next 50 largest stocks
+NIFTY_NEXT_50 = [
+    'GODREJCP.NS', 'PIDILITIND.NS', 'SIEMENS.NS', 'DABUR.NS', 'AMBUJACEM.NS',
+    'BANKBARODA.NS', 'HAVELLS.NS', 'BERGEPAINT.NS', 'MARICO.NS', 'COLPAL.NS',
+    'TORNTPHARM.NS', 'MCDOWELL-N.NS', 'GAIL.NS', 'VEDL.NS', 'SAIL.NS',
+    'NMDC.NS', 'JINDALSTEL.NS', 'TATAPOWER.NS', 'CANBK.NS', 'UNIONBANK.NS',
+    'IOCL.NS', 'ICICIGI.NS', 'NAUKRI.NS', 'MOTHERSON.NS', 'BOSCHLTD.NS',
+    'PAGEIND.NS', 'MUTHOOTFIN.NS', 'POLICYBZR.NS', 'ZOMATO.NS', 'PAYTM.NS',
+    'DMART.NS', 'BAJAJHLDNG.NS', 'CHOLAFIN.NS', 'LUPIN.NS', 'AUBANK.NS',
+    'CONCOR.NS', 'RECLTD.NS', 'PFIZER.NS', 'BIOCON.NS', 'CADILAHC.NS',
+    'ALKEM.NS', 'TORNTPOWER.NS', 'INDIGO.NS', 'SPICEJET.NS', 'JUBLFOOD.NS',
+    'VOLTAS.NS', 'WHIRLPOOL.NS', 'CROMPTON.NS', 'RELAXO.NS', 'BATAINDIA.NS'
+]
+
+# Banking & Financial Services
+BANKING_FINANCIAL = [
+    'HDFCBANK.NS', 'ICICIBANK.NS', 'KOTAKBANK.NS', 'SBIN.NS', 'AXISBANK.NS',
+    'INDUSINDBK.NS', 'BANKBARODA.NS', 'CANBK.NS', 'UNIONBANK.NS', 'PNB.NS',
+    'IDFCFIRSTB.NS', 'FEDERALBNK.NS', 'BANDHANBNK.NS', 'RBLBANK.NS', 'YESBANK.NS',
+    'BAJFINANCE.NS', 'BAJAJFINSV.NS', 'CHOLAFIN.NS', 'MUTHOOTFIN.NS', 'MANAPPURAM.NS',
+    'SHRIRAMFIN.NS', 'LICHSGFIN.NS', 'SBILIFE.NS', 'HDFCLIFE.NS', 'ICICIGI.NS',
+    'BAJAJHLDNG.NS', 'HDFCAMC.NS', 'CDSL.NS', 'CAMS.NS', 'MAZDOCK.NS'
+]
+
+# Information Technology
+IT_SECTOR = [
+    'TCS.NS', 'INFY.NS', 'HCLTECH.NS', 'WIPRO.NS', 'TECHM.NS',
+    'LTIM.NS', 'MPHASIS.NS', 'PERSISTENT.NS', 'COFORGE.NS', 'MINDTREE.NS',
+    'OFSS.NS', 'CYIENT.NS', 'ROLTA.NS', 'NIITLTD.NS', 'KPITTECH.NS',
+    'ZENSAR.NS', 'SONATSOFTW.NS', 'HEXAWARE.NS', 'L&TTS.NS', 'POLYCAB.NS'
+]
+
+# Pharmaceuticals & Healthcare
+PHARMA_HEALTHCARE = [
+    'SUNPHARMA.NS', 'CIPLA.NS', 'DRREDDY.NS', 'DIVISLAB.NS', 'LUPIN.NS',
+    'BIOCON.NS', 'CADILAHC.NS', 'ALKEM.NS', 'PFIZER.NS', 'GLENMARK.NS',
+    'TORNTPHARM.NS', 'AUROPHARMA.NS', 'ABBOTINDIA.NS', 'GLAXO.NS', 'NOVARTIS.NS',
+    'APOLLOHOSP.NS', 'FORTIS.NS', 'MAXHEALTH.NS', 'NARAYANA.NS', 'LALPATHLAB.NS'
+]
+
+# Fast Moving Consumer Goods (FMCG)
+FMCG_SECTOR = [
+    'HINDUNILVR.NS', 'ITC.NS', 'NESTLEIND.NS', 'BRITANNIA.NS', 'DABUR.NS',
+    'GODREJCP.NS', 'MARICO.NS', 'COLPAL.NS', 'EMAMILTD.NS', 'VBL.NS',
+    'TATACONSUM.NS', 'RADICO.NS', 'MCDOWELL-N.NS', 'UBL.NS', 'GILLETTE.NS'
+]
+
+# Automotive
+AUTOMOTIVE_SECTOR = [
+    'MARUTI.NS', 'TATAMOTORS.NS', 'M&M.NS', 'BAJAJ-AUTO.NS', 'HEROMOTOCO.NS',
+    'EICHERMOT.NS', 'TVSMOTORS.NS', 'ASHOKLEY.NS', 'ESCORTS.NS', 'BALKRISIND.NS',
+    'MRF.NS', 'APOLLOTYRE.NS', 'CEAT.NS', 'JK.NS', 'MOTHERSON.NS',
+    'BOSCHLTD.NS', 'EXIDEIND.NS', 'AMARA.NS', 'BHARATFORG.NS', 'ENDURANCE.NS'
+]
+
+# Energy & Oil
+ENERGY_OIL = [
+    'RELIANCE.NS', 'ONGC.NS', 'BPCL.NS', 'IOCL.NS', 'HINDPETRO.NS',
+    'GAIL.NS', 'PETRONET.NS', 'CASTROLIND.NS', 'MRPL.NS', 'CHENNPETRO.NS',
+    'ADANIENT.NS', 'ADANIGREEN.NS', 'ADANIPOWER.NS', 'NTPC.NS', 'POWERGRID.NS',
+    'TATAPOWER.NS', 'TORNTPOWER.NS', 'NHPC.NS', 'SJVN.NS', 'THERMAX.NS'
+]
+
+# Metals & Mining
+METALS_MINING = [
+    'TATASTEEL.NS', 'JSWSTEEL.NS', 'HINDALCO.NS', 'COALINDIA.NS', 'VEDL.NS',
+    'SAIL.NS', 'NMDC.NS', 'JINDALSTEL.NS', 'MOIL.NS', 'RATNAMANI.NS',
+    'WELCORP.NS', 'WELSPUNIND.NS', 'HINDZINC.NS', 'NATIONALUM.NS', 'BALRAMCHIN.NS'
+]
+
+# Infrastructure & Construction
+INFRASTRUCTURE = [
+    'LT.NS', 'ULTRACEMCO.NS', 'GRASIM.NS', 'AMBUJACEM.NS', 'ACC.NS',
+    'SHREECEM.NS', 'RAMCOCEM.NS', 'HEIDELBERG.NS', 'JKCEMENT.NS', 'ORIENTCEM.NS',
+    'CONCOR.NS', 'IRCTC.NS', 'GMRINFRA.NS', 'GVK.NS', 'ADANIPORTS.NS'
+]
+
+# Telecommunications
+TELECOM_SECTOR = [
+    'BHARTIARTL.NS', 'IDEA.NS', 'INDUS.NS', 'GTLINFRA.NS', 'RCOM.NS',
+    'TTML.NS', 'ONMOBILE.NS', 'ROUTE.NS', 'RAILTEL.NS', 'HFCL.NS'
+]
+
+# Consumer Durables & Electronics
+CONSUMER_DURABLES = [
+    'TITAN.NS', 'VOLTAS.NS', 'WHIRLPOOL.NS', 'CROMPTON.NS', 'HAVELLS.NS',
+    'BAJAJELECTR.NS', 'ORIENTELEC.NS', 'KANSAINER.NS', 'BLUESTARCO.NS', 'AMBER.NS',
+    'DIXON.NS', 'RAJESHEXPO.NS', 'KALPATPOWR.NS', 'SCHNEIDER.NS', 'SIEMENS.NS'
+]
+
+# Textiles & Apparel
+TEXTILES_APPAREL = [
+    'RELAXO.NS', 'BATAINDIA.NS', 'PAGEIND.NS', 'RAYMOND.NS', 'ARVIND.NS',
+    'WELSPUNIND.NS', 'VARDHMAN.NS', 'TRIDENT.NS', 'ALOKTEXT.NS', 'RSWM.NS',
+    'SPENTEX.NS', 'INDORAMA.NS', 'GRASIM.NS', 'WELCORP.NS', 'SUTLEJTEX.NS'
+]
+
+# Media & Entertainment
+MEDIA_ENTERTAINMENT = [
+    'ZEEL.NS', 'SUNTV.NS', 'NETWORK18.NS', 'TV18BRDCST.NS', 'DISHTV.NS',
+    'BALAJITELE.NS', 'EROS.NS', 'SAREGAMA.NS', 'TIPS.NS', 'PVR.NS'
+]
+
+# Travel & Hospitality
+TRAVEL_HOSPITALITY = [
+    'INDIGO.NS', 'SPICEJET.NS', 'IRCTC.NS', 'MAHINDRA.NS', 'COX&KINGS.NS',
+    'THOMASCOOK.NS', 'EIHLTD.NS', 'LEMONTREE.NS', 'CHALET.NS', 'MAHLOG.NS'
+]
+
+# E-commerce & New Age Tech
+ECOMMERCE_TECH = [
+    'NAUKRI.NS', 'ZOMATO.NS', 'PAYTM.NS', 'POLICYBZR.NS', 'DMART.NS',
+    'FSN.NS', 'CARTRADE.NS', 'EASEMYTRIP.NS', 'DEVYANI.NS', 'JUBLFOOD.NS'
+]
+
+# Comprehensive NSE Stock Universe (Top 500+ stocks)
+NSE_COMPREHENSIVE = (
+    NIFTY_50 + NIFTY_NEXT_50 + 
+    [stock for stock in BANKING_FINANCIAL if stock not in NIFTY_50 + NIFTY_NEXT_50] +
+    [stock for stock in IT_SECTOR if stock not in NIFTY_50 + NIFTY_NEXT_50] +
+    [stock for stock in PHARMA_HEALTHCARE if stock not in NIFTY_50 + NIFTY_NEXT_50] +
+    [stock for stock in FMCG_SECTOR if stock not in NIFTY_50 + NIFTY_NEXT_50] +
+    [stock for stock in AUTOMOTIVE_SECTOR if stock not in NIFTY_50 + NIFTY_NEXT_50] +
+    [stock for stock in ENERGY_OIL if stock not in NIFTY_50 + NIFTY_NEXT_50] +
+    [stock for stock in METALS_MINING if stock not in NIFTY_50 + NIFTY_NEXT_50] +
+    [stock for stock in INFRASTRUCTURE if stock not in NIFTY_50 + NIFTY_NEXT_50] +
+    [stock for stock in TELECOM_SECTOR if stock not in NIFTY_50 + NIFTY_NEXT_50] +
+    [stock for stock in CONSUMER_DURABLES if stock not in NIFTY_50 + NIFTY_NEXT_50] +
+    [stock for stock in TEXTILES_APPAREL if stock not in NIFTY_50 + NIFTY_NEXT_50] +
+    [stock for stock in MEDIA_ENTERTAINMENT if stock not in NIFTY_50 + NIFTY_NEXT_50] +
+    [stock for stock in TRAVEL_HOSPITALITY if stock not in NIFTY_50 + NIFTY_NEXT_50] +
+    [stock for stock in ECOMMERCE_TECH if stock not in NIFTY_50 + NIFTY_NEXT_50]
+)
+
+# Remove duplicates and sort
+NSE_COMPREHENSIVE = sorted(list(set(NSE_COMPREHENSIVE)))
+
+# Sector mapping for categorization
+SECTOR_MAPPING = {
+    'Banking & Financial': BANKING_FINANCIAL,
+    'Information Technology': IT_SECTOR,
+    'Pharmaceuticals & Healthcare': PHARMA_HEALTHCARE,
+    'FMCG': FMCG_SECTOR,
+    'Automotive': AUTOMOTIVE_SECTOR,
+    'Energy & Oil': ENERGY_OIL,
+    'Metals & Mining': METALS_MINING,
+    'Infrastructure': INFRASTRUCTURE,
+    'Telecommunications': TELECOM_SECTOR,
+    'Consumer Durables': CONSUMER_DURABLES,
+    'Textiles & Apparel': TEXTILES_APPAREL,
+    'Media & Entertainment': MEDIA_ENTERTAINMENT,
+    'Travel & Hospitality': TRAVEL_HOSPITALITY,
+    'E-commerce & Tech': ECOMMERCE_TECH
+}
+
+def get_stock_sector(symbol):
+    """Get the sector for a given stock symbol"""
+    for sector, stocks in SECTOR_MAPPING.items():
+        if symbol in stocks:
+            return sector
+    return 'Others'
+
+def get_stocks_by_sector(sector_name):
+    """Get all stocks in a specific sector"""
+    return SECTOR_MAPPING.get(sector_name, [])
+
+def get_all_sectors():
+    """Get list of all available sectors"""
+    return list(SECTOR_MAPPING.keys())
+
+# Stock universe configurations
+STOCK_UNIVERSES = {
+    'NIFTY_50': NIFTY_50,
+    'NIFTY_NEXT_50': NIFTY_NEXT_50,
+    'NIFTY_100': NIFTY_50 + NIFTY_NEXT_50,
+    'BANKING': BANKING_FINANCIAL,
+    'IT': IT_SECTOR,
+    'PHARMA': PHARMA_HEALTHCARE,
+    'FMCG': FMCG_SECTOR,
+    'AUTO': AUTOMOTIVE_SECTOR,
+    'ENERGY': ENERGY_OIL,
+    'METALS': METALS_MINING,
+    'INFRA': INFRASTRUCTURE,
+    'TELECOM': TELECOM_SECTOR,
+    'CONSUMER': CONSUMER_DURABLES,
+    'TEXTILES': TEXTILES_APPAREL,
+    'MEDIA': MEDIA_ENTERTAINMENT,
+    'TRAVEL': TRAVEL_HOSPITALITY,
+    'ECOMMERCE': ECOMMERCE_TECH,
+    'NSE_COMPREHENSIVE': NSE_COMPREHENSIVE
+}
+
+print(f"Total NSE Comprehensive stocks: {len(NSE_COMPREHENSIVE)}")
+print(f"Available stock universes: {list(STOCK_UNIVERSES.keys())}")
