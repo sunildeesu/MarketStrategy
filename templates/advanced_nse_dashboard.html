@@ -391,6 +391,144 @@
             color: #1f2937;
         }
 
+        /* OBV Analysis Styles */
+        .obv-section {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .obv-header {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .obv-header i {
+            color: #8b5cf6;
+        }
+
+        .obv-details {
+            display: grid;
+            gap: 8px;
+        }
+
+        .obv-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 0;
+        }
+
+        .obv-label {
+            font-size: 0.8rem;
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .obv-value {
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        /* OBV Signal Classes */
+        .obv-signal-buy {
+            color: #059669 !important;
+        }
+
+        .obv-signal-sell {
+            color: #dc2626 !important;
+        }
+
+        .obv-signal-watch {
+            color: #d97706 !important;
+        }
+
+        .obv-signal-hold {
+            color: #6b7280 !important;
+        }
+
+        /* OBV Trend Classes */
+        .obv-trend-up {
+            color: #059669 !important;
+        }
+
+        .obv-trend-down {
+            color: #dc2626 !important;
+        }
+
+        /* OBV Momentum Classes */
+        .obv-momentum-rising {
+            color: #059669 !important;
+        }
+
+        .obv-momentum-falling {
+            color: #dc2626 !important;
+        }
+
+        /* OBV Recommendation Classes */
+        .obv-rec-strong-bullish {
+            color: #065f46 !important;
+            background: #d1fae5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .obv-rec-bullish {
+            color: #166534 !important;
+            background: #dcfce7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .obv-rec-divergence-bullish {
+            color: #92400e !important;
+            background: #fef3c7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .obv-rec-strong-bearish {
+            color: #991b1b !important;
+            background: #fee2e2;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .obv-rec-bearish {
+            color: #991b1b !important;
+            background: #fef2f2;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .obv-rec-divergence-bearish {
+            color: #92400e !important;
+            background: #fef3c7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .obv-rec-neutral {
+            color: #6b7280 !important;
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
         .pagination {
             display: flex;
             justify-content: center;
@@ -950,7 +1088,47 @@
                                 <div class="indicator-title">BB Position</div>
                                 <div class="indicator-value">${(stock.bb_position * 100).toFixed(1)}%</div>
                             </div>
+                            
+                            <div class="indicator-section">
+                                <div class="indicator-title">OBV Signal</div>
+                                <div class="indicator-value ${getOBVSignalClass(stock.obv_analysis?.signal)}">
+                                    ${stock.obv_analysis?.signal || 'N/A'}
+                                </div>
+                            </div>
+                            
+                            <div class="indicator-section">
+                                <div class="indicator-title">OBV Trend</div>
+                                <div class="indicator-value ${getOBVTrendClass(stock.obv_analysis?.obv_trend)}">
+                                    ${stock.obv_analysis?.obv_trend || 'N/A'}
+                                </div>
+                            </div>
                         </div>
+                        
+                        ${stock.obv_analysis ? `
+                        <div class="obv-section">
+                            <div class="obv-header">
+                                <i class="fas fa-chart-bar"></i> OBV Analysis
+                            </div>
+                            <div class="obv-details">
+                                <div class="obv-item">
+                                    <span class="obv-label">Recommendation:</span>
+                                    <span class="obv-value ${getOBVRecommendationClass(stock.obv_analysis.recommendation)}">
+                                        ${formatOBVRecommendation(stock.obv_analysis.recommendation)}
+                                    </span>
+                                </div>
+                                <div class="obv-item">
+                                    <span class="obv-label">Strength:</span>
+                                    <span class="obv-value">${Math.abs(stock.obv_analysis.strength)}/3</span>
+                                </div>
+                                <div class="obv-item">
+                                    <span class="obv-label">Momentum:</span>
+                                    <span class="obv-value ${getOBVMomentumClass(stock.obv_analysis.obv_momentum)}">
+                                        ${stock.obv_analysis.obv_momentum}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        ` : ''}
                     </div>
                 `;
             }).join('');
@@ -1057,6 +1235,77 @@
                 card.classList.remove('active');
             });
             event.target.closest('.sector-card').classList.add('active');
+        }
+
+        // OBV Helper Functions
+        function getOBVSignalClass(signal) {
+            if (!signal) return '';
+            switch (signal.toUpperCase()) {
+                case 'BUY':
+                    return 'obv-signal-buy';
+                case 'SELL':
+                    return 'obv-signal-sell';
+                case 'WATCH':
+                    return 'obv-signal-watch';
+                case 'HOLD':
+                    return 'obv-signal-hold';
+                default:
+                    return '';
+            }
+        }
+
+        function getOBVTrendClass(trend) {
+            if (!trend) return '';
+            switch (trend.toUpperCase()) {
+                case 'UP':
+                    return 'obv-trend-up';
+                case 'DOWN':
+                    return 'obv-trend-down';
+                default:
+                    return '';
+            }
+        }
+
+        function getOBVMomentumClass(momentum) {
+            if (!momentum) return '';
+            switch (momentum.toUpperCase()) {
+                case 'RISING':
+                    return 'obv-momentum-rising';
+                case 'FALLING':
+                    return 'obv-momentum-falling';
+                default:
+                    return '';
+            }
+        }
+
+        function getOBVRecommendationClass(recommendation) {
+            if (!recommendation) return '';
+            switch (recommendation.toUpperCase()) {
+                case 'STRONG_BULLISH':
+                    return 'obv-rec-strong-bullish';
+                case 'BULLISH':
+                    return 'obv-rec-bullish';
+                case 'DIVERGENCE_BULLISH':
+                    return 'obv-rec-divergence-bullish';
+                case 'STRONG_BEARISH':
+                    return 'obv-rec-strong-bearish';
+                case 'BEARISH':
+                    return 'obv-rec-bearish';
+                case 'DIVERGENCE_BEARISH':
+                    return 'obv-rec-divergence-bearish';
+                case 'NEUTRAL':
+                    return 'obv-rec-neutral';
+                default:
+                    return 'obv-rec-neutral';
+            }
+        }
+
+        function formatOBVRecommendation(recommendation) {
+            if (!recommendation) return 'N/A';
+            return recommendation.replace(/_/g, ' ').toLowerCase()
+                .split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
         }
     </script>
 </body>
